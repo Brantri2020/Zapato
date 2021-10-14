@@ -1,0 +1,77 @@
+//desinstalacion
+npm uninstall -g @angular/cli
+//borrar cache
+npm cache verify
+//borrar toda la cache
+npm cache --force
+//instalar angular en la ultima version
+npm install -g @angular/cli
+//generar p crear un nuevo proyecto
+ng new aprendiendo-angular
+//para jecutar el proyecto debemos entrar al directorio donde creamos el proyecto
+npm start
+ng serve
+//abrir el explorador en localhost:4200
+//estructura de archivos
+tsinst configuracion de angular
+tesconfig condifguracion de ts
+readmi dcoumentacio del proyecto
+package configuracion principal del proyecto, script y comando fundamentales para el desarrollo
+angular mas configuraciones para scripts o librerias externas que no sean propias de angular
+gitignore para no commiter ciertos directorios del proyceto
+editorconfig para ciertos editores de codigo
+e2e para temas de pruebas y config internas del framework
+nodemodules donde se descargan todos los paquetes, librerias y dependencias de angular, es el core del framework
+src tiene varias ficheros de configuracion ts index que es la pagina que nos carga
+polyfills para config de navegadores, karma para pruebas
+assets donde guardamos la imagenes y de mas archivos externos
+environments ambientes de produccion
+app donde reside la aplicacion, se tiene un modulo llamado AppComponent, aqui trabajaremos
+
+//elementos de aplicacion de angular
+formada por componentes, plantillas decoradores ,servicios, providers y modules
+//Componente es una parte de la aplicacion controla una parte de la vista
+todo lo que se ve es controlado y gestionado por este tipo de elementos
+la logica de un componente dentro de una clase en angular es que da soporte
+a una vista interactuando con ella a traves de un API con porpiedades y metodos
+el componente hace de mediador entra la vista a traves de la plantilla y la lógica de la app
+donde incluirá el modelo de datos, es decir una especie de controllador
+//Plantillas son las vistas de los componentes son htmls y tienen sintaxis de angular
+//decoradores y metadatos
+Con los decoradores (patron de diseño) vamos a configurar dinamicamente atributos/metadatos de las
+clases y componentes
+los metadatos van a describir a las clases pero tambien describen relaciones, por ejemplo si tenemos
+un componente y una plantilla el metadato se va a encargar de decirle a Angular que ese componente y
+esa plantilla van juntos, entre otras muchas cosas
+//servicios son clases con un objetivo claro, facilita la reutilizacion,
+son un tipo de elemento dentro de la arquitectura de Angular y mediante la inyeción de
+dependencias los podemos usar en otros componentes principales
+//providers son servicios que nos proveen de datos o funcionalidades mediante sus metodos.
+Existen providers/servicios propios de angular o creados por nosotros mismos.
+//directivas son funcionalidades aplicables al DOM y a los elementos HTML en las plantillas de un
+componente. Por ejempli una directiva puede servir para controlar que un div se muestre o no o
+recorrer un array en la vista (directivas estructurales, estructuras condicionales y de control) o
+incluso tambien pueden servir para darle un estilo u otro a un elemento HTML o tambien para
+interactuar con el modelo de datos del componente.
+Basicamente son nuevos atributos para aplicarle a cualquier cosa en nuestra plantilla/vista
+//para crear un componente podemos utilizar la consola o crear los archivos uno a uno
+scaffolding generar de manera automatica
+ng generate component nombre
+//hooks son elementos que se ejecutan en un momento determinado de la ejecucion
+//OnInit es un
+otro es el doCheck cada vez que se produce un cambio
+OnDestroy sirve para ejecutar algo antes de eliminar la instacia del componente
+//directiva es una pequeña funcion en las vistas
+//es una etiqueta y se pueden hacer condicionales, bucles, etc.
+//se utilizan con el *
+//routing revisar que este en el index <base href="/">
+//navegar entre paginas sin necesidad de cargar cada pagina
+//params paso de parametros
+//redirecciones se hacen cuando pasa un evento
+//servicios es para separar la logica de la aplicacion
+//peticiones con ajax con el modulo httpclientmodule que permite hacer peticiones
+//pipes o filtros es una pequeña funcionalidad que podemos utilizar en nuestra vista para hacer
+pequeñas funcionalidades como convertir mayusculas, minusculas, formatear fechas, etc
+veamos el sitio propio de angular
+angular pipes
+se puedes descargar o crear las nuestras propias
