@@ -4,6 +4,7 @@ npm uninstall -g @angular/cli
 npm cache verify
 //borrar toda la cache
 npm cache --force
+
 //instalar angular en la ultima version
 npm install -g @angular/cli
 //generar p crear un nuevo proyecto
