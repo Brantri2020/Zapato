@@ -21,7 +21,7 @@ public class Conexion{
     public Conexion(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con=(Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/sistemamg?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","brantri123");
+            con=(Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/sistemamg?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","root");
         } catch (Exception e) {
             System.err.println("Error:" +e);
         }
