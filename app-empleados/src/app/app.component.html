@@ -1,0 +1,52 @@
+<div class="container">
+<div class="col" style="text-align: center;"><h1>{{titulo}}</h1></div>
+
+<br><br>
+
+<form class="form-group row">
+  <div classs="form-group col-md-3">
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="cuadroNombre">
+
+  </div>
+
+  <div classs="form-group col-md-3">
+
+    <label for="nombre">Apellido:</label>
+    <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control" [(ngModel)]="cuadroApellido">
+
+  </div>
+
+  <div classs="form-group col-md-3">
+
+    <label for="nombre">Cargo:</label>
+    <input type="text" name="cargo" id="cargo" placeholder="Cargo" class="form-control" [(ngModel)]="cuadroCargo">
+
+  </div>
+
+  <div classs="form-group col-md-3">
+
+    <label for="nombre">Salario:</label>
+    <input type="text" name="salario" id="salario" placeholder="Salario" class="form-control" [(ngModel)]="cuadroSalario">
+
+  </div>
+
+</form>
+
+<div class="col">
+  <button type="submit" class="btn btn-primary" (click)="agregarEmpleado()" style="margin-top: 35px;">Agregar</button>
+</div>
+
+</div>
+
+<br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div *ngFor="let empleado of empleados; let i=index">
+        {{i+1}}:{{empleado.nombre}} {{empleado.apellido}} {{empleado.cargo}} {{empleado.salario}}
+      </div>
+    </div>
+  </div>
+</div>
