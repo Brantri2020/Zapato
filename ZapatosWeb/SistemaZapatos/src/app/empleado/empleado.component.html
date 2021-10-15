@@ -2,12 +2,16 @@
 <p>Apellido del empleado: {{apellido}}</p>
 <p>Edad del empleado: {{edad+10}}</p>
 <p>Edad del empleado: {{edad<18 ? "Menor de edad":"Mayor de edad"}}</p>
-<p>Empresa del empleado: {{empresa.value}}</p>
+<p>Empresa del empleado: {{empresa}}</p>
 
-Inroduce la empresa: <input type="text" #empresa (keyup)="0" [disabled]="habilitacionCuadro">
+<!--Inroduce la empresa: <input type="text" #empresa (keyup)="0" [disabled]="habilitacionCuadro">-->
 <br>
 <br>
 <!--<input type="button" value="Dale!" (click)="llamaEmpresa(empresa.value)"/>-->
+
+Introduce la empresa: <input type="text" [(ngModel)]="empresa">
+
+<br>
 
 {{textoDeRegistro}}
 <br>

@@ -15,7 +15,10 @@ export class EmpleadoComponent implements OnInit {
 
   edad = 19;
 
-  //empresa="EPN";
+  empresa="Google";
+
+
+
   /*
   getEdad(){
     return this.edad;
