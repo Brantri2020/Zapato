@@ -1,1 +1,2 @@
 ng serve --o  -------> iniciar frontEnd
+npm run dev ----> iniciar backend
