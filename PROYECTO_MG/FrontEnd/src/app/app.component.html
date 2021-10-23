@@ -1,1 +1,31 @@
-<router-outlet></router-outlet>
+<ng-container *ngIf="authService.comprobarLogin();">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="inicio" routerLinkActive="active">Sistema MG</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="inicio" routerLinkActive="active">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="registro" routerLinkActive="active">Registro</a>
+          </li>   
+          <li class="nav-item">
+            <a class="nav-link" routerLink="publico" routerLinkActive="active">publico</a>
+          </li>      
+          <li class="nav-item">
+            <a class="nav-link" routerLink="" routerLinkActive="active" (click)="authService.cerrarSesion()">Cerrar sesión</a>
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </nav>
+</ng-container>
+
+  <div class="container p-5">
+    <router-outlet></router-outlet>
+  </div>
+
