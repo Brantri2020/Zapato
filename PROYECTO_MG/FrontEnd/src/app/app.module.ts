@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { CrearProveedorComponent } from './components/proveedor/crear-proveedor/crear-proveedor.component';
+import { ListarProveedorComponent } from './components/proveedor/listar-proveedor/listar-proveedor.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     LoginComponent,
     RegistroComponent,
     InicioComponent,
-    PublicoComponent
+    PublicoComponent,
+    CrearProveedorComponent,
+    ListarProveedorComponent
   ],
   imports: [
     BrowserModule,
