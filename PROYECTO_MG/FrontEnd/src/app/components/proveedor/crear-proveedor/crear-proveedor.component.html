@@ -1,1 +1,81 @@
-<p>crear-proveedor works!</p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">{{ titulo | uppercase}}</span>
+                    <form class="mt-3" [formGroup]="proveedorForm" (ngSubmit)="agregarProveedor()">
+                        <div class="mb-3">
+                            <input type="text" formControlName="nombre"
+                            class="form-control form-control-lg" placeholder="Nombre">
+                            <div class="text-danger"
+                                *ngIf="proveedorForm.get('nombre')?.hasError('required') && proveedorForm.get('nombre')?.touched">
+                                <span>El nombre del proveedor <strong>es obligatorio.</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="apellido"
+                            class="form-control form-control-lg" placeholder="Apellido">
+                            <div class="text-danger"
+                                *ngIf="proveedorForm.get('apellido')?.hasError('required') && proveedorForm.get('apellido')?.touched">
+                                <span>El apellido del proveedor <strong>es obligatorio.</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="cedula"
+                            class="form-control form-control-lg" placeholder="Cédula">
+                            <div class="text-danger"
+                                *ngIf="proveedorForm.get('cedula')?.hasError('required') && proveedorForm.get('cedula')?.touched">
+                                <span>La cédula del proveedor <strong>es obligatorio.</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="numeroCuenta"
+                            class="form-control form-control-lg" placeholder="Número de cuenta">
+                            <div class="text-danger"
+                                *ngIf="proveedorForm.get('numeroCuenta')?.hasError('required') && proveedorForm.get('numeroCuenta')?.touched">
+                                <span>El número de cuenta del proveedor <strong>es obligatorio.</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="diasPlazo"
+                            class="form-control form-control-lg" placeholder="Días plazo">
+                            <div class="text-danger"
+                                *ngIf="proveedorForm.get('diasPlazo')?.hasError('required') && proveedorForm.get('diasPlazo')?.touched">
+                                <span>Los días plazo del proveedor <strong>son obligatorios.</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="telefono"
+                            class="form-control form-control-lg" placeholder="Teléfono">
+                            <div class="text-danger"
+                                *ngIf="proveedorForm.get('telefono')?.hasError('required') && proveedorForm.get('telefono')?.touched">
+                                <span>El teléfono del proveedor <strong>es obligatorio.</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="recibo"
+                            class="form-control form-control-lg" placeholder="Recibo">
+                            <div class="text-danger"
+                                *ngIf="proveedorForm.get('recibo')?.hasError('required') && proveedorForm.get('recibo')?.touched">
+                                <span>El tipo de recibo del proveedor <strong>es obligatorio.</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="banco"
+                            class="form-control form-control-lg" placeholder="Banco">
+                            <div class="text-danger"
+                                *ngIf="proveedorForm.get('banco')?.hasError('required') && proveedorForm.get('banco')?.touched">
+                                <span>El banco del proveedor <strong>es obligatorio.</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button routerLink="/proveedores" class="btn btn-secondary btn-lg float-start">VOLVER</button>
+                            <button type="submit" [disabled]="proveedorForm.invalid" class="btn btn-success btn-lg float-end">ACEPTAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

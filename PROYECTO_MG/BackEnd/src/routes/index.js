@@ -6,6 +6,18 @@ const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const user = require('../models/user');
 
+
+const proveedorController = require('../controllers/proveedorController');
+
+/// Proveedores
+router.post('/proveedores', proveedorController.crearProveedor);
+router.get('/proveedores', proveedorController.obtenerProveedores);
+router.put('/proveedores/:id', proveedorController.actualizarProveedor);
+router.get('/proveedores/:id', proveedorController.obtenerProveedor);
+router.delete('/proveedores/:id', proveedorController.eliminarProveedor);
+
+
+
 router.get('/', (req, res) => res.send('Hello world!'))
 
 router.post('/registro', async (req, res) => {
