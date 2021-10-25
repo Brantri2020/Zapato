@@ -16,6 +16,7 @@ export class CrearProveedorComponent implements OnInit {
   titulo = 'Crear proveedor';
   id: string | null;
 
+  
   constructor(private fb: FormBuilder,
     private router: Router,
     private toastr: ToastrService,
