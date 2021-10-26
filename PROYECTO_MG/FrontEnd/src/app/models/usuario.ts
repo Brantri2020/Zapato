@@ -4,7 +4,7 @@ export class Usuario {
     apellido: string;
     cedula: string;
     direccion: string;
-    usuario: string;
+    nombreUsuario: string;
     password: string;
     password2: string;
     rol: string;
@@ -14,7 +14,7 @@ export class Usuario {
         apellido: string,
         cedula: string,
         direccion: string,
-        usuario: string,
+        nombreUsuario: string,
         password: string,
         password2: string,
         rol: string) {
@@ -22,7 +22,7 @@ export class Usuario {
         this.apellido = apellido;
         this.cedula = cedula;
         this.direccion = direccion;
-        this.usuario = usuario;
+        this.nombreUsuario = nombreUsuario;
         this.password = password;
         this.password2 = password2;
         this.rol = rol;        

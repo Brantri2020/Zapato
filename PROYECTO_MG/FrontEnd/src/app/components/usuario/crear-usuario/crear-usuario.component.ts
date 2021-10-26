@@ -16,7 +16,7 @@ export class CrearUsuarioComponent implements OnInit {
   usuarioForm: FormGroup;
   titulo = 'Crear usuario';
   id: string | null;
-  get f() { return this.usuarioForm.controls; }
+  
 
   constructor(private fb: FormBuilder,
     private router: Router,
@@ -28,7 +28,7 @@ export class CrearUsuarioComponent implements OnInit {
         apellido: ['', Validators.required],
         cedula: ['', Validators.required],
         direccion: ['', Validators.required],
-        usuario: ['', Validators.required],
+        nombreUsuario: ['', Validators.required],
         password: ['', Validators.required],
         password2: ['', Validators.required],
         rol: ['', Validators.required]
@@ -50,7 +50,7 @@ export class CrearUsuarioComponent implements OnInit {
       apellido: this.usuarioForm.get('apellido')?.value,
       cedula: this.usuarioForm.get('cedula')?.value,
       direccion: this.usuarioForm.get('direccion')?.value,
-      usuario: this.usuarioForm.get('usuario')?.value,
+      nombreUsuario: this.usuarioForm.get('nombreUsuario')?.value,
       password: this.usuarioForm.get('password')?.value,
       password2: this.usuarioForm.get('password2')?.value,
       rol: this.usuarioForm.get('rol')?.value
@@ -94,7 +94,7 @@ export class CrearUsuarioComponent implements OnInit {
           apellido: data.apellido,
           cedula: data.cedula,
           direccion: data.direccion,
-          usuario: data.usuario,
+          nombreUsuario: data.nombreUsuario,
           password: data.password,
           password2: data.password,
           rol: data.rol       

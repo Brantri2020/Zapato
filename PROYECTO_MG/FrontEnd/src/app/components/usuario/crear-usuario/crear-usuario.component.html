@@ -81,23 +81,23 @@
                             </div>                            
                         </div> 
                         <div class="mb-3">
-                            <input type="text" formControlName="usuario" class="form-control form-control-lg"
+                            <input type="text" formControlName="nombreUsuario" class="form-control form-control-lg"
                                 placeholder="Usuario" minlength="8" maxlength="16" pattern="[0-9A-Za-z\.\-]*">
                             <div class="text-danger"
-                                *ngIf="usuarioForm.get('usuario')?.hasError('required') && usuarioForm.get('usuario')?.touched">
+                                *ngIf="usuarioForm.get('nombreUsuario')?.hasError('required') && usuarioForm.get('nombreUsuario')?.touched">
                                 <span>El usuario <strong>es obligatorio.</strong></span>
                             </div>
                             <div class="text-danger"                                
-                                *ngIf="usuarioForm.get('usuario')?.hasError('minlength')" >
+                                *ngIf="usuarioForm.get('nombreUsuario')?.hasError('minlength')" >
                                 <span>El usuario puede contener <strong>mínimo 8 caracteres o máximo 16.</strong></span>                                                                   
                             </div>
                             <div class="text-danger"                                
-                                *ngIf="usuarioForm.get('usuario')?.hasError('pattern')" >
+                                *ngIf="usuarioForm.get('nombreUsuario')?.hasError('pattern')" >
                                 <span>El usuario puede contener <strong>solo letras, números, punto y guión.</strong></span>                                                                   
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input type="text" formControlName="password" class="form-control form-control-lg"
+                            <input type="password" formControlName="password" class="form-control form-control-lg"
                                 placeholder="Contraseña" minlength="8" maxlength="16" pattern="[0-9A-Za-z\.\-]*">
                             <div class="text-danger"
                                 *ngIf="usuarioForm.get('password')?.hasError('required') && usuarioForm.get('password')?.touched">
@@ -113,7 +113,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input type="text" formControlName="password2" class="form-control form-control-lg"
+                            <input type="password" formControlName="password2" class="form-control form-control-lg"
                                 placeholder="Repita la contraseña" minlength="8" maxlength="16">
                             <div class="text-danger"
                                 *ngIf="usuarioForm.get('password2')?.hasError('required') && usuarioForm.get('password2')?.touched">
@@ -124,7 +124,7 @@
                                 <span>La contraseña del usuario puede contener <strong>mínimo 8 caracteres o máximo 16.</strong></span>                                                                   
                             </div>                      
                             <div class="text-danger"                                
-                            *ngIf="f.password2.hasError('mustMatch')">
+                            *ngIf="usuarioForm.get('password2')?.hasError('mustMatch')">
                                 <span>Las contraseñas <strong>no coinciden.</strong></span>                                                                   
                             </div>
                         </div>

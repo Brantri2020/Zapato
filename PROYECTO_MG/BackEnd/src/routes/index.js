@@ -1,13 +1,15 @@
 const { Router } = require('express');
 const router = Router();
 
-const User = require('../models/user');
+
+const Usuario = require('../models/usuario');
 
 const jwt = require('jsonwebtoken');
-const user = require('../models/user');
+
 
 
 const proveedorController = require('../controllers/proveedorController');
+const usuarioController = require('../controllers/usuarioController');
 
 /// Proveedores
 router.post('/proveedores', proveedorController.crearProveedor);
@@ -16,14 +18,19 @@ router.put('/proveedores/:id', proveedorController.actualizarProveedor);
 router.get('/proveedores/:id', proveedorController.obtenerProveedor);
 router.delete('/proveedores/:id', proveedorController.eliminarProveedor);
 
+/// Usuarios
+router.post('/usuarios', usuarioController.crearUsuario);
+router.get('/usuarios', usuarioController.obtenerUsuarios);
+router.put('/usuarios/:id', usuarioController.actualizarUsuario);
+router.get('/usuarios/:id', usuarioController.obtenerUsuario);
+router.delete('/usuarios/:id', usuarioController.eliminarUsuario);
 
 
-router.get('/', (req, res) => res.send('Hello world!'))
 
 router.post('/registro', async (req, res) => {
     const { usuario, password } = req.body;
 
-    const newUser = new User({ usuario, password });
+    const newUser = new Usuario({ usuario, password });
     await newUser.save();
 
     const token = jwt.sign({ _id: newUser._id }, 'secretKey');
@@ -34,7 +41,7 @@ router.post('/registro', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     const { usuario, password } = req.body;
-    const user = await User.findOne({ usuario })
+    const user = await Usuario.findOne({ usuario })
     if (!user) return res.status(401).send("El usuario no existe");
     if (user.password !== password) return res.status(401).send('Contraseña incorrecta');
 
