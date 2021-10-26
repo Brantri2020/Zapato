@@ -16,6 +16,8 @@ import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { CrearProveedorComponent } from './components/proveedor/crear-proveedor/crear-proveedor.component';
 import { ListarProveedorComponent } from './components/proveedor/listar-proveedor/listar-proveedor.component';
+import { CrearUsuarioComponent } from './components/usuario/crear-usuario/crear-usuario.component';
+import { ListarUsuarioComponent } from './components/usuario/listar-usuario/listar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ListarProveedorComponent } from './components/proveedor/listar-proveedo
     InicioComponent,
     PublicoComponent,
     CrearProveedorComponent,
-    ListarProveedorComponent
+    ListarProveedorComponent,
+    CrearUsuarioComponent,
+    ListarUsuarioComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,144 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">{{ titulo | uppercase}}</span>
+                    <form class="mt-3" [formGroup]="usuarioForm" (ngSubmit)="agregarUsuario()">
+                        <div class="mb-3">
+                            <input type="text" formControlName="nombre" class="form-control form-control-lg"
+                                placeholder="Nombre" minlength="3" maxlength="25" pattern="[0-9A-Za-záéíóú ]*">
+                            <div class="text-danger"
+                                *ngIf="usuarioForm.get('nombre')?.hasError('required') && usuarioForm.get('nombre')?.touched">
+                                <span>El nombre del usuario <strong>es obligatorio.</strong></span>
+                            </div>
+                            <div class="text-danger"                                
+                                *ngIf="usuarioForm.get('nombre')?.hasError('minlength')" >
+                                <span>El nombre del usuario puede contener <strong>mínimo 3 caracteres o máximo 25.</strong></span>                                                                   
+                            </div>
+                            <div class="text-danger"                                
+                                *ngIf="usuarioForm.get('nombre')?.hasError('pattern')" >
+                                <span>El nombre del proveedor puede contener <strong>letras o números.</strong></span>                                                                   
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="apellido" class="form-control form-control-lg"
+                                placeholder="Apellido" minlength="3" maxlength="25" pattern="[0-9A-Za-záéíóú ]*">
+                            <div class="text-danger"
+                                *ngIf="usuarioForm.get('apellido')?.hasError('required') && usuarioForm.get('apellido')?.touched">
+                                <span>El apellido del usuario <strong>es obligatorio.</strong></span>
+                            </div>
+                            <div class="text-danger"                                
+                                *ngIf="usuarioForm.get('apellido')?.hasError('minlength')" >
+                                <span>El apellido del usuario puede contener <strong>mínimo 3 caracteres o máximo 25.</strong></span>                                                                   
+                            </div>
+                            <div class="text-danger"                                
+                                *ngIf="usuarioForm.get('apellido')?.hasError('pattern')" >
+                                <span>El apellido del usuario puede contener <strong>letras o números.</strong></span>                                                                   
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="cedula" class="form-control form-control-lg"
+                                placeholder="Cédula" minlength="10" maxlength="15" pattern="[0-9\-]*">
+                            <div class="text-danger"
+                                *ngIf="usuarioForm.get('cedula')?.hasError('required') && usuarioForm.get('cedula')?.touched">
+                                <span>La cédula del usuario <strong>es obligatorio.</strong></span>
+                            </div>
+                            <div class="text-danger"                                
+                                *ngIf="usuarioForm.get('cedula')?.hasError('minlength')" >
+                                <span>La cédula del usuario puede contener <strong>mínimo 10 caracteres o máximo 15.</strong></span>                                                                   
+                            </div>
+                            <div class="text-danger"                                
+                                *ngIf="usuarioForm.get('cedula')?.hasError('pattern')" >
+                                <span>La cédula del usuario puede contener <strong>solo números.</strong></span>                                                                   
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="direccion" class="form-control form-control-lg"
+                                placeholder="Dirección" minlength="10" maxlength="50" pattern="[0-9A-Za-záéíóú ]*">
+                            <div class="text-danger"
+                                *ngIf="usuarioForm.get('direccion')?.hasError('required') && usuarioForm.get('direccion')?.touched">
+                                <span>La dirección del usuario <strong>es obligatorio.</strong></span>
+                            </div>
+                            <div class="text-danger"                                
+                                *ngIf="usuarioForm.get('direccion')?.hasError('minlength')" >
+                                <span>La dirección del usuario puede contener <strong>mínimo 10 caracteres o máximo 50.</strong></span>                                                                   
+                            </div>
+                            <div class="text-danger"                                
+                                *ngIf="usuarioForm.get('direccion')?.hasError('pattern')" >
+                                <span>La dirección del usuario puede contener <strong>caracteres y números.</strong></span>                                                                   
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select" formControlName="rol" aria-label="Default select example">
+                                <option selected disabled value="">Seleccione un rol</option>
+                                <option value="Administrador">Administrador</option>
+                                <option value="Empleado">Empleado</option>                                
+                            </select>
+                            <div class="text-danger"
+                                *ngIf="usuarioForm.get('rol')?.hasError('required') && usuarioForm.get('rol')?.touched">
+                                <span>El rol del usuario <strong>es obligatorio.</strong></span>
+                            </div>                            
+                        </div> 
+                        <div class="mb-3">
+                            <input type="text" formControlName="usuario" class="form-control form-control-lg"
+                                placeholder="Usuario" minlength="8" maxlength="16" pattern="[0-9A-Za-z\.\-]*">
+                            <div class="text-danger"
+                                *ngIf="usuarioForm.get('usuario')?.hasError('required') && usuarioForm.get('usuario')?.touched">
+                                <span>El usuario <strong>es obligatorio.</strong></span>
+                            </div>
+                            <div class="text-danger"                                
+                                *ngIf="usuarioForm.get('usuario')?.hasError('minlength')" >
+                                <span>El usuario puede contener <strong>mínimo 8 caracteres o máximo 16.</strong></span>                                                                   
+                            </div>
+                            <div class="text-danger"                                
+                                *ngIf="usuarioForm.get('usuario')?.hasError('pattern')" >
+                                <span>El usuario puede contener <strong>solo letras, números, punto y guión.</strong></span>                                                                   
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="password" class="form-control form-control-lg"
+                                placeholder="Contraseña" minlength="8" maxlength="16" pattern="[0-9A-Za-z\.\-]*">
+                            <div class="text-danger"
+                                *ngIf="usuarioForm.get('password')?.hasError('required') && usuarioForm.get('password')?.touched">
+                                <span>La contraseña del usuario <strong>es obligatoria.</strong></span>
+                            </div>
+                            <div class="text-danger"                                
+                                *ngIf="usuarioForm.get('password')?.hasError('minlength')" >
+                                <span>La contraseña del usuario puede contener <strong>mínimo 8 caracteres o máximo 16.</strong></span>                                                                   
+                            </div>
+                            <div class="text-danger"                                
+                                *ngIf="usuarioForm.get('password')?.hasError('pattern')" >
+                                <span>La contraseña del usuario puede contener <strong>solo letras, números, punto y guión.</strong></span>                                                                   
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="password2" class="form-control form-control-lg"
+                                placeholder="Repita la contraseña" minlength="8" maxlength="16">
+                            <div class="text-danger"
+                                *ngIf="usuarioForm.get('password2')?.hasError('required') && usuarioForm.get('password2')?.touched">
+                                <span>Repetir la contraseña del usuario <strong>es obligatorio.</strong></span>
+                            </div>      
+                            <div class="text-danger"                                
+                                *ngIf="usuarioForm.get('password2')?.hasError('minlength')" >
+                                <span>La contraseña del usuario puede contener <strong>mínimo 8 caracteres o máximo 16.</strong></span>                                                                   
+                            </div>                      
+                            <div class="text-danger"                                
+                            *ngIf="f.password2.hasError('mustMatch')">
+                                <span>Las contraseñas <strong>no coinciden.</strong></span>                                                                   
+                            </div>
+                        </div>
+                        
+                                               
+                        <div class="mb-3">
+                            <button routerLink="/usuarios"
+                                class="btn btn-secondary btn-lg float-start">VOLVER</button>
+                            <button type="submit" [disabled]="usuarioForm.invalid"
+                                class="btn btn-success btn-lg float-end">ACEPTAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

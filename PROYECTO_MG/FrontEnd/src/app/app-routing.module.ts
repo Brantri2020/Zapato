@@ -7,6 +7,8 @@ import { CrearProveedorComponent } from './components/proveedor/crear-proveedor/
 import { ListarProveedorComponent } from './components/proveedor/listar-proveedor/listar-proveedor.component';
 import { PublicoComponent } from './components/publico/publico.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { CrearUsuarioComponent } from './components/usuario/crear-usuario/crear-usuario.component';
+import { ListarUsuarioComponent } from './components/usuario/listar-usuario/listar-usuario.component';
 
 //components
 const routes: Routes = [
@@ -18,6 +20,9 @@ const routes: Routes = [
   { path: 'proveedores' , component: ListarProveedorComponent, canActivate: [AuthGuard]},
   { path: 'crear-proveedor' , component: CrearProveedorComponent, canActivate: [AuthGuard]},
   { path: 'editar-proveedor/:id' , component: CrearProveedorComponent, canActivate: [AuthGuard]},
+  { path: 'usuarios' , component: ListarUsuarioComponent, canActivate: [AuthGuard]},
+  { path: 'crear-usuario' , component: CrearUsuarioComponent, canActivate: [AuthGuard]},
+  { path: 'editar-usuario/:id' , component: CrearUsuarioComponent, canActivate: [AuthGuard]},
   { path: '**' , redirectTo:'', pathMatch:'full'},
   
 ];
