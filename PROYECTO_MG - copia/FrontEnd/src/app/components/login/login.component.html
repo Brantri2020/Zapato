@@ -1,0 +1,40 @@
+<body class="align">
+
+    <div class="login">
+
+        <header class="login__header">
+            <h2><svg class="icon">
+                    <use xlink:href="#icon-lock" />
+                </svg>Login</h2>
+        </header>
+
+        <form class="login__form" [formGroup]="loginForm" (submit)="iniciar()">
+
+            <div>
+                <label for="usuario">Usuario</label>
+                <input type="text" placeholder="Ingrese su usuario" formControlName="usuario"
+                    class="form-control form-control-lg" required autofocus>                
+            </div>
+            
+
+            <div>
+                <label for="password">Contraseña</label>
+                <input type="password" placeholder="Ingrese su contraseña" formControlName="password"
+                    class="form-control form-control-lg" required>                
+            </div>
+
+            <div>
+                <div class="text-danger" style="text-align: center;">
+                    <span><strong>{{mensaje}}</strong></span>
+                </div>
+                <br>
+                <input class="button" type="submit" value="Ingresar" >                
+            </div>
+
+        </form>
+
+    </div>
+
+
+
+</body>

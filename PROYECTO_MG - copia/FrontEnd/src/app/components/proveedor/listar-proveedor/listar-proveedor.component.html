@@ -1,0 +1,44 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">LISTADO DE PROVEEDORES</span>
+                    <button class="btn btn-success float-end" routerLink="/crear-proveedor">NUEVO</button>
+                    <table *ngIf="listProveedores.length > 0" class="table table-striped mt-3">
+                        <thead>
+                          <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Cédula</th>
+                            <th scope="col">Número de cuenta</th>
+                            <th scope="col">Días plazo</th>
+                            <th scope="col">Teléfono</th>
+                            <th scope="col">Recibo</th>
+                            <th scope="col">Banco</th>                            
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let proveedor of listProveedores">                            
+                            <td>{{proveedor.nombre}}</td>
+                            <td>{{proveedor.apellido}}</td>
+                            <td>{{proveedor.cedula}}</td>
+                            <td>{{proveedor.numeroCuenta}}</td>
+                            <td>{{proveedor.diasPlazo}}</td>
+                            <td>{{proveedor.telefono}}</td>
+                            <td>{{proveedor.recibo}}</td>
+                            <td>{{proveedor.banco}}</td>
+                            <td>
+                                <i [routerLink]="['/editar-proveedor', proveedor._id]"  class="far fa-edit text-primary"></i>
+                                <i (click)="eliminarProveedor(proveedor._id)"  class="fas fa-trash text-danger"></i>
+                            </td>                                             
+                          </tr>                                             
+                        </tbody>
+                      </table>
+                      <h5 style="text-align: start; margin-top: 10px;" *ngIf="listProveedores.length == 0" >No hay proveedores para mostrar</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
