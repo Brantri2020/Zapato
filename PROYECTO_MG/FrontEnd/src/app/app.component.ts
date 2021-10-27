@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { AuthService } from './services/auth.service';
 
 @Component({
@@ -7,5 +7,12 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(public authService: AuthService){}
+  constructor(public authService: AuthService) { }
+
+  //Cerrar sesión al cerrar ventana
+  @HostListener('window:beforeunload', ['$event'])
+  beforeunloadHandler(event: any) {
+    localStorage.clear();
+  }
+
 }

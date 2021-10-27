@@ -17,6 +17,7 @@ export class AuthService {
   }
 
   loguear(usuario: { usuario: string; password: string; }): Observable<any>{
+    this.cerrarSesion();
     return this.http.post(this.URL + '/login', usuario);
   }
 
