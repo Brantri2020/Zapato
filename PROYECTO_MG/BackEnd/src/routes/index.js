@@ -26,7 +26,7 @@ router.get('/usuarios/:id', usuarioController.obtenerUsuario);
 router.delete('/usuarios/:id', usuarioController.eliminarUsuario);
 
 
-
+/*
 router.post('/registro', async (req, res) => {
     const { usuario, password } = req.body;
 
@@ -37,7 +37,7 @@ router.post('/registro', async (req, res) => {
     res.status(200).json({ token })
 
 });
-
+*/
 
 router.post('/login', async (req, res) => {
     const { usuario, password } = req.body;

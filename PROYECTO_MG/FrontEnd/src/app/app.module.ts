@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { InicioComponent } from './components/inicio/inicio.component';
-import { RegistroComponent } from './components/registro/registro.component';
 import { PublicoComponent } from './components/publico/publico.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -23,7 +22,6 @@ import { ListarUsuarioComponent } from './components/usuario/listar-usuario/list
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistroComponent,
     InicioComponent,
     PublicoComponent,
     CrearProveedorComponent,
