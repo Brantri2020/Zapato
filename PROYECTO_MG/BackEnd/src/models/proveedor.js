@@ -18,7 +18,7 @@ const ProveedorSchema = mongoose.Schema({
     },
     diasPlazo: {
         type: String,
-        default: Date.now()
+        required: true
     },
     telefono: {
         type: String,

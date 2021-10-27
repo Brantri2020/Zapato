@@ -12,12 +12,9 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  registro(usuario: { usuario: string; password: string; }): Observable<any>{
-    return this.http.post(this.URL + '/registro', usuario);
-  }
 
-  loguear(usuario: { usuario: string; password: string; }): Observable<any>{
-    this.cerrarSesion();
+  loguear(usuario: { nombre: string; password: string; }): Observable<any>{  
+    
     return this.http.post(this.URL + '/login', usuario);
   }
 

@@ -40,10 +40,14 @@ router.post('/registro', async (req, res) => {
 */
 
 router.post('/login', async (req, res) => {
-    const { usuario, password } = req.body;
-    const user = await Usuario.findOne({ usuario })
+    const { nombre, password } = req.body;
+    
+
+    const user = await Usuario.findOne({ nombreUsuario: nombre })
+    
     if (!user) return res.status(401).send("El usuario no existe");
     if (user.password !== password) return res.status(401).send('Contraseña incorrecta');
+    
 
     const token = jwt.sign({ _id: user._id }, 'secretKey');
     return res.status(200).json({ token });

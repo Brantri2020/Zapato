@@ -121,3 +121,8 @@
     display: block;
     margin: 0 auto;
   }
+
+  .text-danger{
+    text-align: start;
+    margin-left: 7px;
+}
