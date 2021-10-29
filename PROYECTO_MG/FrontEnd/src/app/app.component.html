@@ -1,34 +1,37 @@
 <ng-container *ngIf="authService.comprobarLogin();">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink="inicio" routerLinkActive="active">Sistema MG</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="inicio" routerLinkActive="active">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="usuarios" routerLinkActive="active">Usuarios</a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" routerLink="proveedores" routerLinkActive="active">Proveedores</a>
-          </li>           
-          <li class="nav-item">
-            <a class="nav-link" routerLink="publico" routerLinkActive="active">Público</a>
-          </li>      
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" routerLinkActive="active" (click)="authService.cerrarSesion()">Cerrar sesión</a>
-          </li> 
+
+
+  
+<nav class="navbar navbar-expand navbar-dark  navbar-light" style="background-color: #009FFF;">
+  <div class="container-fluid">
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="inicio" routerLinkActive="active" style="font-size: 120%;">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="usuarios" routerLinkActive="active" style="font-size: 120%;">Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="proveedores" routerLinkActive="active" style="font-size: 120%;">Proveedores</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="publico" routerLinkActive="active" style="font-size: 120%;">Público</a>
+        </li>
         </ul>
-      </div>
+        <ul class="navbar-nav " style="float: right; margin-right: 98px; font-size: 120%;" > 
+        <li class="nav-item">
+          <a class="nav-link" routerLink="" routerLinkActive="active" (click)="authService.cerrarSesion()">Cerrar
+            sesión</a>
+        </li>        
+      </ul>      
     </div>
-  </nav>
+  </div>
+</nav>
 </ng-container>
 
-  <div class="container" >
-    <router-outlet></router-outlet>
-  </div>
 
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
