@@ -39,7 +39,7 @@
                         </div>
                         <div class="mb-3">
                             <input type="text" formControlName="cedula" class="form-control form-control-lg"
-                                placeholder="Cédula o RUC" minlength="10" maxlength="15" pattern="[0-9\-]*">
+                                placeholder="Cédula o RUC" minlength="10" maxlength="15" pattern="[0-9\-]*" id="cedulaId">
                             <div class="text-danger"
                                 *ngIf="proveedorForm.get('cedula')?.hasError('required') && proveedorForm.get('cedula')?.touched">
                                 <span>La cédula o RUC del proveedor <strong>es obligatorio.</strong></span>
@@ -129,6 +129,10 @@
                                 <span>El banco del proveedor puede contener <strong>letras o números.</strong></span>                                                                   
                             </div>
                         </div>
+                        <div class="text-danger" style="text-align: center;">
+                            <span><strong>{{mensaje}}</strong></span>
+                        </div>
+                        <br>
                         <div class="mb-3">
                             <button routerLink="/proveedores"
                                 class="btn btn-secondary btn-lg float-start">VOLVER</button>

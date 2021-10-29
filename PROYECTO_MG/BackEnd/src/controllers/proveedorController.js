@@ -8,6 +8,15 @@ exports.crearProveedor = async (req,res) =>{
         //Creamos nuestro proveedir
         proveedor = new Proveedor(req.body);
 
+        
+
+        const cedula = await Proveedor.findOne({ cedula: proveedor.cedula })
+
+        if (cedula) return res.status(401).send("El proveedor con esta cédula ya esta registrado.");
+
+        
+
+
         await proveedor.save();
         res.send(proveedor);
         
@@ -34,6 +43,7 @@ exports.actualizarProveedor = async (req,res) =>{
     try {
         const { nombre, apellido,cedula, numeroCuenta, diasPlazo, telefono, recibo, banco } = req.body; 
         let proveedor = await Proveedor.findById(req.params.id);
+        let proveedor2 = await Proveedor.findById(req.params.id);
 
         if(!proveedor){
             res.status(404).json({msg: 'No existe el proveedor'})
@@ -46,6 +56,13 @@ exports.actualizarProveedor = async (req,res) =>{
         proveedor.telefono = telefono;
         proveedor.recibo = recibo;
         proveedor.banco = banco;
+
+        const ced = await Proveedor.findOne({ cedula: proveedor.cedula })
+        
+
+        if (ced && proveedor2.cedula !== proveedor.cedula) return res.status(401).send("El proveedor con esta cédula ya esta registrado.");
+
+
         
         proveedor = await Proveedor.findOneAndUpdate({_id: req.params.id},proveedor, {new: true})
         res.json(proveedor);

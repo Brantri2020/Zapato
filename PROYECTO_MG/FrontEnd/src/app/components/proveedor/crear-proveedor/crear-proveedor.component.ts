@@ -15,6 +15,7 @@ export class CrearProveedorComponent implements OnInit {
   proveedorForm: FormGroup;
   titulo = 'Crear proveedor';
   id: string | null;
+  mensaje: string = "";
 
   
   constructor(private fb: FormBuilder,
@@ -61,7 +62,13 @@ export class CrearProveedorComponent implements OnInit {
           this.router.navigate(['/proveedores']);
         }, error => {
           console.log(error);
-          this.proveedorForm.reset();
+          this.mensaje = error.error;
+
+          if (this.mensaje == "El proveedor con esta cédula ya esta registrado.") {
+            var elemento: any = document.getElementById("cedulaId");
+            elemento.className += " is-invalid";            
+          }
+
         })
   
       } else {
@@ -72,7 +79,13 @@ export class CrearProveedorComponent implements OnInit {
           this.router.navigate(['/proveedores']);
         }, error => {
           console.log(error);
-          this.proveedorForm.reset();
+          this.mensaje = error.error;
+
+          if (this.mensaje == "El proveedor con esta cédula ya esta registrado.") {
+            var elemento: any = document.getElementById("cedulaId");
+            elemento.className += " is-invalid";            
+          }
+
         })
       }
   
