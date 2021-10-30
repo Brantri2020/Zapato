@@ -7,12 +7,24 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(public authService: AuthService) { }
+  
 
+  
+  mensaje: any = "";
+
+  constructor(public authService: AuthService) { 
+    this.mensaje=this.authService.getUsuario()?.toString;
+  }
+
+  ngOnInit(): void {
+    
+  }
   //Cerrar sesión al cerrar ventana
   @HostListener('window:beforeunload', ['$event'])
   beforeunloadHandler(event: any) {
     localStorage.clear();
   }
+
+ 
 
 }

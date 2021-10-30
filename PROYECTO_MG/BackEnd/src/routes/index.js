@@ -48,9 +48,9 @@ router.post('/login', async (req, res) => {
     if (!user) return res.status(401).send("El usuario no existe");
     if (user.password !== password) return res.status(401).send('Contraseña incorrecta');
     
-
+    let nombres = user.nombre + " " + user.apellido 
     const token = jwt.sign({ _id: user._id }, 'secretKey');
-    return res.status(200).json({ token });
+    return res.status(200).json({ token, nombres});
 });
 
 router.get('/tasks', (req,res)=>{

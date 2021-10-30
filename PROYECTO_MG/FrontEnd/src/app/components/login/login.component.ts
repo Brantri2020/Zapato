@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -45,7 +46,9 @@ export class LoginComponent implements OnInit {
             
 
         localStorage.setItem('token', res.token);
+        localStorage.setItem('nombres', res.nombres);
         this.router.navigate(['/inicio']);
+        
       },
         err => {console.log(err)
         this.mensaje = err.error;    
@@ -57,4 +60,7 @@ export class LoginComponent implements OnInit {
 
     
   }
+
+
+  
 }

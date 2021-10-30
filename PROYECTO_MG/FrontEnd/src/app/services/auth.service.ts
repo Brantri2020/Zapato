@@ -26,6 +26,9 @@ export class AuthService {
     
     return localStorage.getItem('token');
   }
+  getUsuario(){
+    return localStorage.getItem('nombres');
+  }
 
   cerrarSesion(){
     localStorage.removeItem('token');

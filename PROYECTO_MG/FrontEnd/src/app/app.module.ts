@@ -17,6 +17,8 @@ import { CrearProveedorComponent } from './components/proveedor/crear-proveedor/
 import { ListarProveedorComponent } from './components/proveedor/listar-proveedor/listar-proveedor.component';
 import { CrearUsuarioComponent } from './components/usuario/crear-usuario/crear-usuario.component';
 import { ListarUsuarioComponent } from './components/usuario/listar-usuario/listar-usuario.component';
+import { CrearInventarioComponent } from './components/inventario/crear-inventario/crear-inventario.component';
+import { ListarInventarioComponent } from './components/inventario/listar-inventario/listar-inventario.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ListarUsuarioComponent } from './components/usuario/listar-usuario/list
     CrearProveedorComponent,
     ListarProveedorComponent,
     CrearUsuarioComponent,
-    ListarUsuarioComponent
+    ListarUsuarioComponent,
+    CrearInventarioComponent,
+    ListarInventarioComponent
   ],
   imports: [
     BrowserModule,

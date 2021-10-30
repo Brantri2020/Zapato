@@ -1,38 +1,54 @@
 <ng-container *ngIf="authService.comprobarLogin();">
 
 
-  
-<nav class="navbar navbar-expand-lg  navbar-dark  navbar-light" style="background-color: #009FFF;">
-  <div class="container-fluid">
-   
-    <div class=" navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="inicio" routerLinkActive="active" style="font-size: 120%;">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="usuarios" routerLinkActive="active" style="font-size: 120%;">Usuarios</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="proveedores" routerLinkActive="active" style="font-size: 120%;">Proveedores</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="publico" routerLinkActive="active" style="font-size: 120%;">Público</a>
-        </li>
+
+  <nav class="navbar navbar-expand-lg  navbar-dark  navbar-light" style="background-color: #009FFF;">
+    <div class="container-fluid">
+
+      <div class=" navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="inicio" routerLinkActive="active"
+              style="font-size: 120%;">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 120%;">Registrar venta</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 120%;">Pedidos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 120%;">Inventario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="usuarios" routerLinkActive="active" style="font-size: 120%;">Usuarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="proveedores" routerLinkActive="active"
+              style="font-size: 120%;">Proveedores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 120%;">Consultas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="publico" routerLinkActive="active" style="font-size: 120%;">Público</a>
+          </li>
         </ul>
-        <ul class="navbar-nav " style="float: right; margin-right: 98px; font-size: 120%;" > 
-        <li class="nav-item">
-          <a class="nav-link" routerLink="" routerLinkActive="active" (click)="authService.cerrarSesion()">Cerrar
-            sesión</a>
-        </li>        
-      </ul>      
+        <ul class="navbar-nav " style="float: right; margin-right: 98px; font-size: 120%;">
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 120%;">{{mensaje}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="" routerLinkActive="active" (click)="authService.cerrarSesion()">Cerrar
+              sesión</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 </ng-container>
 
 
 <div class="container">
   <router-outlet></router-outlet>
 </div>
-
