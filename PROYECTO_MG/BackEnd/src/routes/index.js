@@ -10,6 +10,7 @@ const jwt = require('jsonwebtoken');
 
 const proveedorController = require('../controllers/proveedorController');
 const usuarioController = require('../controllers/usuarioController');
+const inventarioController = require('../controllers/inventarioController');
 
 /// Proveedores
 router.post('/proveedores', proveedorController.crearProveedor);
@@ -24,6 +25,13 @@ router.get('/usuarios', usuarioController.obtenerUsuarios);
 router.put('/usuarios/:id', usuarioController.actualizarUsuario);
 router.get('/usuarios/:id', usuarioController.obtenerUsuario);
 router.delete('/usuarios/:id', usuarioController.eliminarUsuario);
+
+/// inventario
+router.post('/productos', inventarioController.crearInventario);
+router.get('/productos', inventarioController.obtenerInventarios);
+router.put('/productos/:id', inventarioController.actualizarInventario);
+router.get('/productos/:id', inventarioController.obtenerInventario);
+router.delete('/productos/:id', inventarioController.eliminarInventario);
 
 
 /*

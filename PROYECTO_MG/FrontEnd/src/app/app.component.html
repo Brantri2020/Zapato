@@ -18,7 +18,8 @@
             <a class="nav-link" style="font-size: 120%;">Pedidos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="font-size: 120%;">Inventario</a>
+            <a class="nav-link" routerLink="productos" routerLinkActive="active"
+              style="font-size: 120%;">Inventario</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="usuarios" routerLinkActive="active" style="font-size: 120%;">Usuarios</a>
@@ -35,9 +36,6 @@
           </li>
         </ul>
         <ul class="navbar-nav " style="float: right; margin-right: 98px; font-size: 120%;">
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: 120%;">{{mensaje}}</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="" routerLinkActive="active" (click)="authService.cerrarSesion()">Cerrar
               sesión</a>

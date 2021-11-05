@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AppComponent } from 'src/app/app.component';
+
 import { AuthService } from 'src/app/services/auth.service';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +12,14 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  @Output()
+  enviar: EventEmitter<string> = new EventEmitter<string>();
+ 
   loginForm: FormGroup
   mensaje:string="";
   usuario:string="";
   password:string="";
+ 
 
   constructor(private fb: FormBuilder,private authService: AuthService,
     private router: Router) {
@@ -43,10 +48,11 @@ export class LoginComponent implements OnInit {
     }else{
 
       this.authService.loguear(LOGIN).subscribe(res => {
-            
-
+        
         localStorage.setItem('token', res.token);
-        localStorage.setItem('nombres', res.nombres);
+        localStorage.setItem('nombres', res.nombres);  
+
+
         this.router.navigate(['/inicio']);
         
       },

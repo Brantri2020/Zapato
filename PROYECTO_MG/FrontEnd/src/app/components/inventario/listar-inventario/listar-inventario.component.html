@@ -1,1 +1,47 @@
-<p>listar-inventario works!</p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">LISTADO DE PRODUCTOS</span>
+                    <button class="btn btn-success float-end" routerLink="/crear-inventario">NUEVO</button>
+                    <table *ngIf="listInventarios.length > 0" class="table table-striped mt-3">
+                        <thead>
+                          <tr>
+                            <th scope="col">Código</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Talla</th>
+                            <th scope="col">Stock</th>
+                            <th scope="col">Precio unitario</th>
+                            <th scope="col">Proveedor</th>                                                 
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let inventario of listInventarios">                            
+                            <td>{{inventario.codigo}}</td>
+                            <td>{{inventario.descripcion}}</td>
+                            <td>{{inventario.talla}}</td>
+                            <td>{{inventario.stock}}</td>
+                            <td>{{inventario.precioUnitario}}</td>
+                            <td>{{inventario.proveedor}}</td>                            
+                            <td>
+                                <i [routerLink]="['/editar-inventario', inventario._id]"  class="far fa-edit text-primary"></i>
+                                <i (click)="eliminarInventario(inventario._id)"  class="fas fa-trash text-danger"></i>
+                            </td>                                             
+                          </tr>                                             
+                        </tbody>
+                      </table>
+                      <h5 style="text-align: start; margin-top: 10px;" *ngIf="listInventarios.length == 0" >No hay productos para mostrar</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<footer style="text-align: center; color: white;">
+  Brandon Toapanta Jimenez &copy;<br>
+  Contacto: +593990533058 <br>
+  Correo: brantri2015@hotmail.com <br>
+</footer>
+<br>

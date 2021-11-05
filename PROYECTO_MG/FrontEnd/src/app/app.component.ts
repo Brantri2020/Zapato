@@ -10,10 +10,10 @@ export class AppComponent {
   
 
   
-  mensaje: any = "";
+  mensaje: string = "";
 
   constructor(public authService: AuthService) { 
-    this.mensaje=this.authService.getUsuario()?.toString;
+   
   }
 
   ngOnInit(): void {
@@ -25,6 +25,8 @@ export class AppComponent {
     localStorage.clear();
   }
 
- 
+ recibirMensaje(mensaje: any){
+   this.mensaje=mensaje;
+ }
 
 }
