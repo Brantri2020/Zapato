@@ -30,4 +30,5 @@ export class InventarioService {
     return this.http.put(this.url + id, inventario);
   }
   
+
 }

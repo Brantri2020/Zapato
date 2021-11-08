@@ -86,23 +86,15 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input type="text" formControlName="proveedor" class="form-control form-control-lg"
-                                placeholder="Proveedor" minlength="3" maxlength="15" pattern="[0-9A-Za-záéíóú ]*">
+                            <select class="form-select" formControlName="proveedor" aria-label="Default select example">
+                                <option selected disabled value="">Seleccione un proveedor</option>
+                                <option value="{{proveedorList.nombre}} {{proveedorList.apellido}}" *ngFor="let proveedorList of provee">{{proveedorList.nombre}} {{proveedorList.apellido}}</option>                                                             
+                            </select>
                             <div class="text-danger"
                                 *ngIf="inventarioForm.get('proveedor')?.hasError('required') && inventarioForm.get('proveedor')?.touched">
-                                <span>El proveedor del producto <strong>es obligatorio.</strong></span>
-                            </div>
-                            <div class="text-danger"                                
-                                *ngIf="inventarioForm.get('proveedor')?.hasError('minlength')" >
-                                <span>El proveedor del producto puede contener <strong>mínimo 3 caracteres o máximo 15.</strong></span>                                                                   
-                            </div>
-                            <div class="text-danger"                                
-                                *ngIf="inventarioForm.get('proveedor')?.hasError('pattern')" >
-                                <span>El proveedor del producto puede contener <strong> solo números.</strong></span>                                                                   
-                            </div>
-                        </div>
-                        
-                        
+                                <span>El proveedor <strong>es obligatorio.</strong></span>
+                            </div>                            
+                        </div>                                                
                         <div class="text-danger" style="text-align: center;">
                             <span><strong>{{mensaje}}</strong></span>
                         </div>

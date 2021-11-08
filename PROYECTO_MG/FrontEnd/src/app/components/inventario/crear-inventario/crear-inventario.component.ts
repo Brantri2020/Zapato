@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Inventario } from 'src/app/models/inventario';
 import { InventarioService } from 'src/app/services/inventario.service';
+import { ProveedorService } from 'src/app/services/proveedor.service';
 
 @Component({
   selector: 'app-crear-inventario',
@@ -16,12 +17,14 @@ export class CrearInventarioComponent implements OnInit {
   titulo = 'Crear producto';
   id: string | null;
   mensaje: string = "";
+  provee = [{"nombre":"","apellido":""}];
 
 
   constructor(private fb: FormBuilder,
     private router: Router,
     private toastr: ToastrService,
     private _inventarioService: InventarioService,
+    private _proveedorService: ProveedorService,
     private aRouter: ActivatedRoute) {
       this.inventarioForm = this.fb.group({
         codigo: ['', Validators.required],
@@ -35,6 +38,12 @@ export class CrearInventarioComponent implements OnInit {
      }
 
   ngOnInit(): void {
+    //obtener proveedores
+    this._proveedorService.getProveedores().subscribe(res =>{      
+      this.provee=res;
+    }, err => console.log(err))
+
+
     this.esEditar();
   }
 
