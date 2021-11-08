@@ -15,6 +15,17 @@ const inventarioController = require('../controllers/inventarioController');
 /// Proveedores
 router.post('/proveedores', proveedorController.crearProveedor);
 router.get('/proveedores', proveedorController.obtenerProveedores);
+
+//ordenar proveedores
+router.get('/proveedores/Nombre', proveedorController.obtenerProveedoresOrdenadosNombre);
+router.get('/proveedores/Apellido', proveedorController.obtenerProveedoresOrdenadosApellido);
+router.get('/proveedores/Cedula', proveedorController.obtenerProveedoresOrdenadosCedula);
+router.get('/proveedores/Cuenta', proveedorController.obtenerProveedoresOrdenadosCuenta);
+router.get('/proveedores/Plazo', proveedorController.obtenerProveedoresOrdenadosPlazo);
+router.get('/proveedores/Telefono', proveedorController.obtenerProveedoresOrdenadosTelefono);
+router.get('/proveedores/Recibo', proveedorController.obtenerProveedoresOrdenadosRecibo);
+router.get('/proveedores/Banco', proveedorController.obtenerProveedoresOrdenadosBanco);
+
 router.put('/proveedores/:id', proveedorController.actualizarProveedor);
 router.get('/proveedores/:id', proveedorController.obtenerProveedor);
 router.delete('/proveedores/:id', proveedorController.eliminarProveedor);

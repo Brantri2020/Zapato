@@ -8,19 +8,19 @@
                     <table *ngIf="listProveedores.length > 0" class="table table-striped mt-3">
                         <thead>
                           <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellido</th>
-                            <th scope="col">Cédula</th>
-                            <th scope="col">Número de cuenta</th>
-                            <th scope="col">Días plazo</th>
-                            <th scope="col">Teléfono</th>
-                            <th scope="col">Recibo</th>
-                            <th scope="col">Banco</th>                            
+                            <th scope="col" (click)="ordenar('Nombre')" onMouseover="this.style.color='blue'" onMouseout="this.style.color='black'" style=" cursor: pointer;">Nombre</th>
+                            <th scope="col" (click)="ordenar('Apellido')" onMouseover="this.style.color='blue'" onMouseout="this.style.color='black'" style=" cursor: pointer;">Apellido</th>
+                            <th scope="col" (click)="ordenar('Cedula')" onMouseover="this.style.color='blue'" onMouseout="this.style.color='black'" style=" cursor: pointer;">Cédula</th>
+                            <th scope="col" (click)="ordenar('Cuenta')" onMouseover="this.style.color='blue'" onMouseout="this.style.color='black'" style=" cursor: pointer;">Número de cuenta</th>
+                            <th scope="col" (click)="ordenar('Plazo')" onMouseover="this.style.color='blue'" onMouseout="this.style.color='black'" style=" cursor: pointer;">Días plazo</th>
+                            <th scope="col" (click)="ordenar('Telefono')" onMouseover="this.style.color='blue'" onMouseout="this.style.color='black'" style=" cursor: pointer;">Teléfono</th>
+                            <th scope="col" (click)="ordenar('Recibo')" onMouseover="this.style.color='blue'" onMouseout="this.style.color='black'" style=" cursor: pointer;">Recibo</th>
+                            <th scope="col" (click)="ordenar('Banco')" onMouseover="this.style.color='blue'" onMouseout="this.style.color='black'" style=" cursor: pointer;">Banco</th>                            
                             <th scope="col"></th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let proveedor of listProveedores">                            
+                          <tr *ngFor="let proveedor of listProveedores ">                            
                             <td>{{proveedor.nombre}}</td>
                             <td>{{proveedor.apellido}}</td>
                             <td>{{proveedor.cedula}}</td>

@@ -38,6 +38,106 @@ exports.obtenerProveedores = async (req,res) =>{
     }
 }
 
+
+
+exports.obtenerProveedoresOrdenadosNombre = async (req,res) =>{
+    
+    try {
+        const proveedores = await Proveedor.find().sort('nombre');
+        res.json(proveedores);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
+
+exports.obtenerProveedoresOrdenadosApellido = async (req,res) =>{
+    
+    try {
+        const proveedores = await Proveedor.find().sort('apellido');
+        res.json(proveedores);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
+
+
+exports.obtenerProveedoresOrdenadosCedula = async (req,res) =>{
+    
+    try {
+        const proveedores = await Proveedor.find().sort('cedula');
+        res.json(proveedores);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
+
+exports.obtenerProveedoresOrdenadosCuenta = async (req,res) =>{
+    
+    try {
+        const proveedores = await Proveedor.find().sort('numeroCuenta');
+        res.json(proveedores);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
+
+exports.obtenerProveedoresOrdenadosPlazo = async (req,res) =>{
+    
+    try {
+        const proveedores = await Proveedor.find().sort('diasPlazo');
+        res.json(proveedores);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
+
+exports.obtenerProveedoresOrdenadosTelefono = async (req,res) =>{
+    
+    try {
+        const proveedores = await Proveedor.find().sort('telefono');
+        res.json(proveedores);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
+
+exports.obtenerProveedoresOrdenadosRecibo = async (req,res) =>{
+    
+    try {
+        const proveedores = await Proveedor.find().sort({'recibo':'-1'});
+        res.json(proveedores);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
+
+exports.obtenerProveedoresOrdenadosBanco = async (req,res) =>{
+    
+    try {
+        const proveedores = await Proveedor.find().sort('banco');
+        res.json(proveedores);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
+
+
 exports.actualizarProveedor = async (req,res) =>{
     
     try {
