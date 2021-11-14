@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProveedorService } from 'src/app/services/proveedor.service';
 import { ToastrService } from 'ngx-toastr';
 import { Proveedor } from 'src/app/models/proveedor';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-listar-proveedor',
@@ -12,9 +13,15 @@ export class ListarProveedorComponent implements OnInit {
   listProveedores: Proveedor[] = [];
   listProveedores2: Proveedor[] = [];
   i=0;
+  busquedaProvForm: FormGroup;
 
   constructor(private _proveedorService: ProveedorService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private fb: FormBuilder) { 
+      this.busquedaProvForm = this.fb.group({
+        busqueda: ['', Validators.required]
+      });
+    }
 
   ngOnInit(): void {
     this.obtenerProveedores();
@@ -59,5 +66,18 @@ export class ListarProveedorComponent implements OnInit {
   }
 
 
+  buscarProveedor() {
+    if(this.busquedaProvForm.get('busqueda')?.value==""){
+      this.obtenerProveedores();
+    }else{
+    this._proveedorService.buscarProveedor(this.busquedaProvForm.get('busqueda')?.value).subscribe(data => {      
+      this.listProveedores = data;
+      
+
+    }, error => {
+      console.log(error);
+    })
+  }
+  }
 
 }

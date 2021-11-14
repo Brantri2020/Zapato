@@ -34,4 +34,8 @@ export class ProveedorService {
   editarProveedor(id: string, proveedor: Proveedor): Observable<any> {
     return this.http.put(this.url + id, proveedor);
   }
+
+  buscarProveedor(busqueda: string): Observable<any> {
+    return this.http.get(this.url + "busqueda/"+busqueda);
+  }
 }

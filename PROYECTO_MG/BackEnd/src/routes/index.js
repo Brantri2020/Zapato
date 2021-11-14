@@ -30,6 +30,8 @@ router.put('/proveedores/:id', proveedorController.actualizarProveedor);
 router.get('/proveedores/:id', proveedorController.obtenerProveedor);
 router.delete('/proveedores/:id', proveedorController.eliminarProveedor);
 
+router.get('/proveedores/busqueda/:busqueda', proveedorController.busquedaProveedor);
+
 /// Usuarios
 router.post('/usuarios', usuarioController.crearUsuario);
 router.get('/usuarios', usuarioController.obtenerUsuarios);
