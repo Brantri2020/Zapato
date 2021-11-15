@@ -4,6 +4,7 @@ const router = Router();
 
 const Usuario = require('../models/usuario');
 
+
 const jwt = require('jsonwebtoken');
 
 
@@ -29,7 +30,7 @@ router.get('/proveedores/Banco', proveedorController.obtenerProveedoresOrdenados
 router.put('/proveedores/:id', proveedorController.actualizarProveedor);
 router.get('/proveedores/:id', proveedorController.obtenerProveedor);
 router.delete('/proveedores/:id', proveedorController.eliminarProveedor);
-
+//buscar proveedor
 router.get('/proveedores/busqueda/:busqueda', proveedorController.busquedaProveedor);
 
 /// Usuarios
@@ -39,12 +40,38 @@ router.put('/usuarios/:id', usuarioController.actualizarUsuario);
 router.get('/usuarios/:id', usuarioController.obtenerUsuario);
 router.delete('/usuarios/:id', usuarioController.eliminarUsuario);
 
+//ordenar usuarios
+router.get('/usuarios2/Nombre', usuarioController.obtenerUsuariosOrdenadosNombre);
+router.get('/usuarios2/Apellido', usuarioController.obtenerUsuariosOrdenadosApellido);
+router.get('/usuarios2/Cedula', usuarioController.obtenerUsuariosOrdenadosCedula);
+router.get('/usuarios2/Direccion', usuarioController.obtenerUsuariosOrdenadosDireccion);
+router.get('/usuarios2/NombreUsuario', usuarioController.obtenerUsuariosOrdenadosNombreUsuario);
+router.get('/usuarios2/Rol', usuarioController.obtenerUsuariosOrdenadosRol);
+
+//buscar usuarios
+router.get('/usuarios/busqueda/:busqueda', usuarioController.busquedaUsuario);
+
+
 /// inventario
 router.post('/productos', inventarioController.crearInventario);
 router.get('/productos', inventarioController.obtenerInventarios);
 router.put('/productos/:id', inventarioController.actualizarInventario);
 router.get('/productos/:id', inventarioController.obtenerInventario);
 router.delete('/productos/:id', inventarioController.eliminarInventario);
+
+//ordenar productos
+router.get('/productos2/Codigo', inventarioController.obtenerProductosOrdenadosCodigo);
+router.get('/productos2/Descripcion', inventarioController.obtenerProductosOrdenadosDescripcion);
+router.get('/productos2/Talla', inventarioController.obtenerProductosOrdenadosTalla);
+router.get('/productos2/Stock', inventarioController.obtenerProductosOrdenadosStock);
+router.get('/productos2/PrecioUnitario', inventarioController.obtenerProductosOrdenadosPrecioUnitario);
+router.get('/productos2/Proveedor', inventarioController.obtenerProductosOrdenadosProveedor);
+
+
+
+
+//buscar inventario
+router.get('/productos/busqueda/:busqueda', inventarioController.busquedaInventario);
 
 
 /*

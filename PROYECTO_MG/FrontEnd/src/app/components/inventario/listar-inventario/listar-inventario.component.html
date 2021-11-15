@@ -1,42 +1,61 @@
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-lg-8 offset-lg-2">
-            <div class="card">
-                <div class="card-body text-center">
-                    <span class="titulo">LISTADO DE PRODUCTOS</span>
-                    <button class="btn btn-success float-end" routerLink="/crear-inventario">NUEVO</button>
-                    <table *ngIf="listInventarios.length > 0" class="table table-striped mt-3">
-                        <thead>
-                          <tr>
-                            <th scope="col">Código</th>
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Talla</th>
-                            <th scope="col">Stock</th>
-                            <th scope="col">Precio unitario</th>
-                            <th scope="col">Proveedor</th>                                                 
-                            <th scope="col"></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr *ngFor="let inventario of listInventarios">                            
-                            <td>{{inventario.codigo}}</td>
-                            <td>{{inventario.descripcion}}</td>
-                            <td>{{inventario.talla}}</td>
-                            <td>{{inventario.stock}}</td>
-                            <td>{{inventario.precioUnitario}}</td>
-                            <td>{{inventario.proveedor}}</td>                            
-                            <td>
-                                <i [routerLink]="['/editar-inventario', inventario._id]"  class="far fa-edit text-primary"></i>
-                                <i (click)="eliminarInventario(inventario._id)"  class="fas fa-trash text-danger"></i>
-                            </td>                                             
-                          </tr>                                             
-                        </tbody>
-                      </table>
-                      <h5 style="text-align: start; margin-top: 10px;" *ngIf="listInventarios.length == 0" >No hay productos para mostrar</h5>
-                </div>
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">LISTADO DE PRODUCTOS</span>
+          <button class="btn btn-success float-end" routerLink="/crear-inventario">NUEVO</button>
+
+          <form class="row g-2" style="justify-content: center;" [formGroup]="busquedaInvForm"
+            (ngSubmit)="buscarInventario()">
+            <div class="col-auto">
+              <label for="inputPassword2" class="visually-hidden">Buscar</label>
+              <input type="text" class="form-control" formControlName="busqueda" placeholder="Búsqueda">
             </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-3">BUSCAR</button>
+            </div>
+          </form>
+
+          <table *ngIf="listInventarios.length > 0" class="table table-striped mt-3">
+            <thead>
+              <tr>
+                <th scope="col" (click)="ordenar('Codigo')" onMouseover="this.style.color='blue'"
+                onMouseout="this.style.color='black'" style=" cursor: pointer;">Código</th>            
+                <th scope="col" (click)="ordenar('Descripcion')" onMouseover="this.style.color='blue'"
+                onMouseout="this.style.color='black'" style=" cursor: pointer;">Descripción</th>
+                <th scope="col" (click)="ordenar('Talla')" onMouseover="this.style.color='blue'"
+                onMouseout="this.style.color='black'" style=" cursor: pointer;">Talla</th>
+                <th scope="col" (click)="ordenar('Stock')" onMouseover="this.style.color='blue'"
+                onMouseout="this.style.color='black'" style=" cursor: pointer;">Stock</th>
+                <th scope="col" (click)="ordenar('PrecioUnitario')" onMouseover="this.style.color='blue'"
+                onMouseout="this.style.color='black'" style=" cursor: pointer;">Precio unitario</th>
+                <th scope="col" (click)="ordenar('Proveedor')" onMouseover="this.style.color='blue'"
+                onMouseout="this.style.color='black'" style=" cursor: pointer;">Proveedor</th>
+                <th scope="col" ></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let inventario of listInventarios">
+                <td>{{inventario.codigo}}</td>
+                <td>{{inventario.descripcion}}</td>
+                <td>{{inventario.talla}}</td>
+                <td>{{inventario.stock}}</td>
+                <td>{{inventario.precioUnitario}}</td>
+                <td>{{inventario.proveedor}}</td>
+                <td>
+                  <i [routerLink]="['/editar-inventario', inventario._id]" class="far fa-edit text-primary"></i>
+                  <i (click)="eliminarInventario(inventario._id)" class="fas fa-trash text-danger"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h5 style="text-align: start; margin-top: 10px;" *ngIf="listInventarios.length == 0">No hay productos para
+            mostrar</h5>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <br>
 <footer style="text-align: center; color: white;">

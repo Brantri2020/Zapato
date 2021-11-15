@@ -1,42 +1,62 @@
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-lg-8 offset-lg-2">
-            <div class="card">
-                <div class="card-body text-center">
-                    <span class="titulo">LISTADO DE USUARIOS</span>
-                    <button class="btn btn-success float-end" routerLink="/crear-usuario">NUEVO</button>
-                    <table *ngIf="listUsuarios.length > 0" class="table table-striped mt-3">
-                        <thead>
-                          <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellido</th>
-                            <th scope="col">Cédula</th>
-                            <th scope="col">Dirección</th>
-                            <th scope="col">Usuario</th>
-                            <th scope="col">Rol</th>                                                   
-                            <th scope="col"></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr *ngFor="let usuario of listUsuarios">                            
-                            <td>{{usuario.nombre}}</td>
-                            <td>{{usuario.apellido}}</td>
-                            <td>{{usuario.cedula}}</td>
-                            <td>{{usuario.direccion}}</td>
-                            <td>{{usuario.nombreUsuario}}</td>
-                            <td>{{usuario.rol}}</td>
-                            <td>
-                                <i [routerLink]="['/editar-usuario', usuario._id]"  class="far fa-edit text-primary"></i>
-                                <i (click)="eliminarUsuario(usuario._id)"  class="fas fa-trash text-danger"></i>
-                            </td>                                             
-                          </tr>                                             
-                        </tbody>
-                      </table>
-                      <h5 style="text-align: start; margin-top: 10px;" *ngIf="listUsuarios.length == 0" >No hay usuaris para mostrar</h5>
-                </div>
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">LISTADO DE USUARIOS</span>
+          <button class="btn btn-success float-end" routerLink="/crear-usuario">NUEVO</button>
+
+          <form class="row g-2" style="justify-content: center;" [formGroup]="busquedaUsuForm"
+            (ngSubmit)="buscarUsuario()">
+            <div class="col-auto">
+              <label for="inputPassword2" class="visually-hidden">Buscar</label>
+              <input type="text" class="form-control" formControlName="busqueda" placeholder="Búsqueda">
             </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-3">BUSCAR</button>
+            </div>
+          </form>
+
+
+          <table *ngIf="listUsuarios.length > 0" class="table table-striped mt-3">
+            <thead>
+              <tr>
+                <th scope="col" (click)="ordenar('Nombre')" onMouseover="this.style.color='blue'"
+                onMouseout="this.style.color='black'" style=" cursor: pointer;">Nombre</th>
+                <th scope="col" (click)="ordenar('Apellido')" onMouseover="this.style.color='blue'"
+                onMouseout="this.style.color='black'" style=" cursor: pointer;">Apellido</th>
+                <th scope="col" (click)="ordenar('Cedula')" onMouseover="this.style.color='blue'"
+                onMouseout="this.style.color='black'" style=" cursor: pointer;">Cédula</th>
+                <th scope="col" (click)="ordenar('Direccion')" onMouseover="this.style.color='blue'"
+                onMouseout="this.style.color='black'" style=" cursor: pointer;">Dirección</th>
+                <th scope="col" (click)="ordenar('NombreUsuario')" onMouseover="this.style.color='blue'"
+                onMouseout="this.style.color='black'" style=" cursor: pointer;">Usuario</th>
+                <th scope="col" (click)="ordenar('Rol')" onMouseover="this.style.color='blue'"
+                onMouseout="this.style.color='black'" style=" cursor: pointer;">Rol</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let usuario of listUsuarios">
+                <td>{{usuario.nombre}}</td>
+                <td>{{usuario.apellido}}</td>
+                <td>{{usuario.cedula}}</td>
+                <td>{{usuario.direccion}}</td>
+                <td>{{usuario.nombreUsuario}}</td>
+                <td>{{usuario.rol}}</td>
+                <td>
+                  <i [routerLink]="['/editar-usuario', usuario._id]" class="far fa-edit text-primary"></i>
+                  <i (click)="eliminarUsuario(usuario._id)" class="fas fa-trash text-danger"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h5 style="text-align: start; margin-top: 10px;" *ngIf="listUsuarios.length == 0">No hay usuaris para mostrar
+          </h5>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <br>
 <footer style="text-align: center; color: white;">

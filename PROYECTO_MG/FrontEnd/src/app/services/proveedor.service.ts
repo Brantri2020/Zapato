@@ -8,7 +8,6 @@ import { Proveedor } from '../models/proveedor';
 })
 export class ProveedorService {
   url = 'http://localhost:3000/api/proveedores/';
-  i = 0;
 
   constructor(private http: HttpClient) { }
 

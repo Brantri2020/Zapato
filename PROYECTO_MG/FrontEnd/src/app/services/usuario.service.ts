@@ -8,6 +8,7 @@ import { Usuario } from '../models/usuario';
 })
 export class UsuarioService {
   url = 'http://localhost:3000/api/usuarios/';
+  url2 = 'http://localhost:3000/api/usuarios2/';
   constructor(private http: HttpClient) { }
 
   getUsuarios(): Observable<any>{
@@ -27,6 +28,13 @@ export class UsuarioService {
   }
   editarUsuario(id: string, usuario: Usuario): Observable<any>{
     return this.http.put(this.url + id, usuario);
+  }
+  buscarUsuario(busqueda: string): Observable<any> {
+    return this.http.get(this.url + "busqueda/"+busqueda);
+  }
+  getUsuariosOrdenado(filtro: string): Observable<any> {
+    return this.http.get(this.url2 + filtro);
+
   }
 
 }

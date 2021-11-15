@@ -9,15 +9,15 @@ const InventarioSchema = mongoose.Schema({
         required: true
     },
     talla: {
-        type: Number,
+        type: String,
         required: true
     },
     stock: {
-        type: Number,
+        type: String,
         required: true
     },
     precioUnitario: {
-        type: Number,
+        type: String,
         required: true
     },
     proveedor: {

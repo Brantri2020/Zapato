@@ -263,7 +263,7 @@ exports.busquedaProveedor = async (req, res) => {
                                     if (JSON.stringify(proveedores8)!=='[]' ) {
                                         res.json(proveedores8);
                                     } else {
-                                        console.log('Sigo aqui')
+                                        
                                         return res.json({ msg: 'No existen coincidencias' });
                                         
                                     }

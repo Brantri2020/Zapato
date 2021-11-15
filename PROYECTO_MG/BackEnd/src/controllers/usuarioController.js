@@ -40,6 +40,76 @@ exports.obtenerUsuarios = async (req, res) => {
     }
 }
 
+exports.obtenerUsuariosOrdenadosNombre = async (req, res) => {
+
+    try {
+        const usuarios = await Usuario.find().sort('nombre');
+        res.json(usuarios);
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
+
+exports.obtenerUsuariosOrdenadosApellido = async (req, res) => {
+
+    try {
+        const usuarios = await Usuario.find().sort('apellido');
+        res.json(usuarios);
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
+
+exports.obtenerUsuariosOrdenadosCedula = async (req, res) => {
+
+    try {
+        const usuarios = await Usuario.find().sort('cedula');
+        res.json(usuarios);
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
+exports.obtenerUsuariosOrdenadosDireccion = async (req, res) => {
+
+    try {
+        const usuarios = await Usuario.find().sort('direccion');
+        res.json(usuarios);
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
+exports.obtenerUsuariosOrdenadosNombreUsuario = async (req, res) => {
+
+    try {
+        const usuarios = await Usuario.find().sort('nombreUsuario');
+        res.json(usuarios);
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
+exports.obtenerUsuariosOrdenadosRol = async (req, res) => {
+
+    try {
+        const usuarios = await Usuario.find().sort('rol');
+        res.json(usuarios);
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
+
+
 exports.actualizarUsuario = async (req, res) => {
 
     try {
@@ -113,3 +183,64 @@ exports.eliminarUsuario = async (req, res) => {
 }
 
 
+
+exports.busquedaUsuario = async (req, res) => {
+
+    try {
+
+        let palabra;
+
+        //Creamos nuestra busqueda
+        palabra = req.params.busqueda;
+
+        const usuarios1 = await Usuario.find({ nombre: palabra }).sort('nombre');
+
+        if (JSON.stringify(usuarios1)!=='[]' ) {
+            res.json(usuarios1);
+            
+
+        } else {
+            const usuarios2 = await Usuario.find({ apellido: palabra }).sort('apellido');
+
+            if (JSON.stringify(usuarios2)!=='[]' ) {
+                res.json(usuarios2);
+            } else {
+                const usuarios3 = await Usuario.find({ cedula: palabra }).sort('cedula');
+
+                if (JSON.stringify(usuarios3)!=='[]' ) {
+                    res.json(usuarios3);
+                } else {
+                    const usuarios4 = await Usuario.find({ direccion: palabra }).sort('direccion');
+
+                    if (JSON.stringify(usuarios4)!=='[]' ) {
+                        res.json(usuarios4);
+                    } else {
+                        const usuarios5 = await Usuario.find({ nombreUsuario: palabra }).sort('nombreUsuario');
+
+                        if (JSON.stringify(usuarios5)!=='[]' ) {
+                            res.json(usuarios5);
+                        } else {
+                            const usuarios6 = await Usuario.find({ rol: palabra }).sort('rol');
+
+                            if (JSON.stringify(usuarios6)!=='[]' ) {
+                                res.json(usuarios6);
+                            } else {
+                                return res.json({ msg: 'No existen coincidencias' });
+                            }
+                        }
+                    }
+                }
+            }
+
+
+           
+        }
+
+
+
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
